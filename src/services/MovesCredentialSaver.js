@@ -6,6 +6,7 @@ const MOVES_ACCESS_TOKEN_ACCOUNT_NAME = 'AccessToken';
 const MOVES_REFRESH_TOKEN_ACCOUNT_NAME = 'RefreshToken';
 const MOVES_ACCESS_TOKEN_CREATION_TIME = 'AccessTokenCreationTime';
 const MOVES_ACCESS_TOKEN_LIFETIME = 'AccessTokenLifetime';
+const MOVES_ACCESS_TOKEN_EXPIRATION = 'AccessTokenExpiration';
 
 class MovesCredentialSaver {
   static async save(accountName, value) {
@@ -41,6 +42,10 @@ class MovesCredentialSaver {
     return MovesCredentialSaver.save(MOVES_ACCESS_TOKEN_LIFETIME, value);
   }
 
+  static async saveAccessTokenExpiration(value) {
+    return MovesCredentialSaver.save(MOVES_ACCESS_TOKEN_EXPIRATION, value);
+  }
+
   static async hasAuthorizationCode() {
     return MovesCredentialSaver.hasValue(MOVES_AUTHORIZATION_CODE_ACCOUNT_NAME);
   }
@@ -54,11 +59,15 @@ class MovesCredentialSaver {
   }
 
   static async hasAccessTokenCreationTime() {
-    return MovesCredentialSaver.save(MOVES_ACCESS_TOKEN_CREATION_TIME);
+    return MovesCredentialSaver.hasValue(MOVES_ACCESS_TOKEN_CREATION_TIME);
   }
 
   static async hasAccessTokenLifetime() {
     return MovesCredentialSaver.hasValue(MOVES_ACCESS_TOKEN_LIFETIME);
+  }
+
+  static async hasAccessTokenExpiration() {
+    return MovesCredentialSaver.hasValue(MOVES_ACCESS_TOKEN_EXPIRATION);
   }
 
   static async getAuthorizationCode() {
@@ -79,6 +88,10 @@ class MovesCredentialSaver {
 
   static async getAccessTokenLifetime() {
     return MovesCredentialSaver.getValue(MOVES_ACCESS_TOKEN_LIFETIME);
+  }
+
+  static async getAccessTokenExpiration() {
+    return MovesCredentialSaver.getValue(MOVES_ACCESS_TOKEN_EXPIRATION);
   }
 }
 
