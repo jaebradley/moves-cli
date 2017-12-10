@@ -55,11 +55,13 @@
   "dependencies": {
     "axios": "^0.17.1",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "cli-table": "^0.3.1",
     "colors": "^1.1.2",
     "commander": "^2.12.1",
     "express": "^4.16.2",
     "inquirer": "^4.0.0",
     "keytar": "^4.0.5",
+    "moment-timezone": "^0.5.14",
     "open": "0.0.5",
     "winston": "^2.4.0"
   }
